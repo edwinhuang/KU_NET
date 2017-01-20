@@ -9,7 +9,6 @@ public class GlobalHelper : MonoBehaviour
 {
 
     public static GlobalHelper mIns;
-    public GameObject LogoPanelParent;
     private GameObject _TargetObject;
 
     public GameObject TargetObject
@@ -33,9 +32,7 @@ public class GlobalHelper : MonoBehaviour
         }
     }
 
-    public GameObject gCamera;
-    private int frameCount;
-    float onApplicationFocusRecord = 0f;
+    private int frameCount = 0;
     public delegate void updateDelegate();
 	public delegate void FixedDelegate();
 
@@ -45,7 +42,6 @@ public class GlobalHelper : MonoBehaviour
     private bool isUpdating;
     private bool isFixUpdate;
 
-    public int listsize = 0;
     private LinkedList<KeyValuePair<Type, int>> ComponentQueue = new LinkedList<KeyValuePair<Type, int>>();
 
     public class ComponentObject
@@ -267,7 +263,7 @@ public class GlobalHelper : MonoBehaviour
 //        KApplication.isPlaying = false;
 //        PlatformIns.mIns.CallPlatformBack(UnityCallBack.GAME_QUIT);
 
-//        SocketService.mIns.Close();
+        SocketService.mIns.Close();
 
         KThread.CloseAll();
 

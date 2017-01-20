@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public enum GameCMD {}
+public enum GameCMD {RECONNECT}
 /// <summary>
 /// 这个版本暂时取消自动移除
 /// </summary>

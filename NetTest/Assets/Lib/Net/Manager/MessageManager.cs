@@ -189,7 +189,7 @@ namespace Kubility
                 }
 
 //#if debug
-								LogMgr.Log("step1 ---- "+cache.DataCount);
+				LogMgr.Log("step1 ---- "+cache.DataCount);
 //#endif
 
                 //等待直到缓存区数据大于包头数据
@@ -205,9 +205,8 @@ namespace Kubility
                     }
 
                     int blen = head.bodyLen;//包头长度 + 包体长度
-
 //#if debug
-										LogMgr.Log("step2 ---- "+cache.DataCount +" blen ="+ blen);
+					LogMgr.Log("step2 ---- "+cache.DataCount +" blen ="+ blen);
 //#endif
 
                     //等待直到缓存区数据大于总长度

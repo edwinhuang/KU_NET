@@ -25,22 +25,6 @@ namespace Kubility
 
     public class ErrorManager : ICommonClass
 	{
-
-		public override void DispatcherEvents(ValueType data, BaseEnum main, BaseEnum sub, object callback)
-		{
-		}
-		public override void Destroy()
-		{}
-
-		public static void PushMsg(string errormsg, ErrorType error = ErrorType.None)
-		{
-
-//			UnkownError(new CustomException(errormsg, error));
-
-		}
-
-	}
-		/*
         private static Queue<ErrorMsgResp> errorList = new Queue<ErrorMsgResp>();
 
 
@@ -91,7 +75,7 @@ namespace Kubility
                 int msgid = error.MsgID;
                 if (msgid != 0)
                 {
-                    if (msgid == 4)
+/*                    if (msgid == 4)
                         DialogController.mIns.DialogControllerShow(msgid, GameController.ReLogin);
                     else if (msgid == 12003)
                     {
@@ -102,7 +86,7 @@ namespace Kubility
                         });
                     }
                     else
-                        DialogController.mIns.DialogControllerShow(msgid);
+                        DialogController.mIns.DialogControllerShow(msgid);//*/
                 }
 
             }
@@ -116,7 +100,7 @@ namespace Kubility
                 int msgid = error.MsgID;
                 if (msgid != 0)
                 {
-                        DialogController.mIns.DialogControllerShow(msgid);
+                 //       DialogController.mIns.DialogControllerShow(msgid);
                 }
 
             }
@@ -283,7 +267,6 @@ namespace Kubility
         #endregion
 
     }
-    */
 }
 
 

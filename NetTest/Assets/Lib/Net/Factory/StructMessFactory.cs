@@ -14,43 +14,42 @@ public class StructMessFactory : DataInterface
 
 		public override BaseMessage DynamicCreate (byte[] data, MessageHead head)
 		{
-		return null;
-		/*
-				StructMessage value = null;
+			StructMessage value = null;
 #if UNITY_EDITOR
-				BaseEnum e1 = (BaseEnum)head.MainCMD;
-				BaseEnum e2 = (BaseEnum)head.SubCMD;
-				if (e1 != null && e2 != null) {
-						LogMgr.Log ("消息头 MAIN =" + e1.ToString () + "   sub =" + e2.ToString ());
-				} else {
-						LogMgr.Log ("消息头 MAIN =" + head.MainCMD.ToString () + "   sub =" + head.SubCMD.ToString ());
-				}
+			BaseEnum e1 = (BaseEnum)head.MainCMD;
+			BaseEnum e2 = (BaseEnum)head.SubCMD;
+			if (e1 != null && e2 != null) {
+					LogMgr.Log ("消息头 MAIN =" + e1.ToString () + "   sub =" + e2.ToString ());
+			} else {
+					LogMgr.Log ("消息头 MAIN =" + head.MainCMD.ToString () + "   sub =" + head.SubCMD.ToString ());
+			}
 
 
 
 #endif
 
-				#if KDEBUG
-				LogMgr.Log ("DynamicCreate  " + data.Length);
+			#if KDEBUG
+			LogMgr.Log ("DynamicCreate  " + data.Length);
 
 
-				StringBuilder sb = new StringBuilder ();
-				for (int i = 0; i < data.Length; ++i) {
-						sb.Append (data [i].ToString () + " -> ");
+			StringBuilder sb = new StringBuilder ();
+			for (int i = 0; i < data.Length; ++i) {
+					sb.Append (data [i].ToString () + " -> ");
+			}
+			sb.Append (" End");
+
+			LogMgr.Log ("Info = " + sb.ToString ());
+			#endif
+
+			if (head.MainCMD == TcpMainCMD.LOGIN) {//Login
+				if (head.SubCMD == TcpSubCMD.SC_LOGIN) {
+					LoginOrRegisterResp Resp = new LoginOrRegisterResp ();
+					Resp.DeSerialize (data);
+					value = StructMessage.CreateResp (head, Resp);
 				}
-				sb.Append (" End");
-
-				LogMgr.Log ("Info = " + sb.ToString ());
-				#endif
-
-				if (MessageInfo.MessageTypeCheck (MessageDataType.Struct)) {
-						if (head.MainCMD == TcpMainCMD.LOGIN) {//Login
-								if (head.SubCMD == TcpSubCMD.SC_LOGIN) {
-										LoginOrRegisterResp Resp = new LoginOrRegisterResp ();
-										Resp.DeSerialize (data);
-										value = StructMessage.CreateResp (head, Resp);
-								}
-						}
+			}
+		return value;
+/*
             #region build
             else if (head.MainCMD == TcpMainCMD.BUILD) {
 								if (head.SubCMD == TcpSubCMD.SC_BUILD_FINISH) {
@@ -482,8 +481,6 @@ public class StructMessFactory : DataInterface
 								}
 						}
 						#endregion
-				}
-
 				return value;
 				//*/
 		}

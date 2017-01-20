@@ -230,7 +230,7 @@ namespace Kubility
                     {
                         ReceiveCount = 0;
 						_socket.SetState(AsyncSocket.SocketArgsStats.FREE);
-						//SocketService.mIns.ClearNetReq();
+						SocketService.mIns.ClearNetReq();
                         PreReceive();
                         //暂留缓存的请求继续发送
                         while (MessageManager.mIns.GetSendQueue().Size > 0)
