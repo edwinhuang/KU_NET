@@ -3,20 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-
-/// <summary>
-/// 存放未有附属拖拽对象且稳定的Global管理类
-/// </summary>
-public enum GameScene
-{
-    LogoScene = 0,
-    LoadingScene = 1,
-    LoadBattleScene = 2,
-    MapScene = 3,
-    LoginScene = 4,
-    BattleScene = 5,
-    END,
-}
+using Kubility;
 
 public class GlobalHelper : MonoBehaviour
 {

@@ -10,7 +10,7 @@ public static class FactoryUtils
 
 		new StructMessFactory(MessageDataType.Struct);
 
-		new BattleDropItemManager(TcpSubCMD.SC_DROP_ITEM);
+/*		new BattleDropItemManager(TcpSubCMD.SC_DROP_ITEM);
 		new GameDataManager(TcpSubCMD.SC_BASE_DATA);
 		new UpdateTimeManager(TcpSubCMD.SC_TIME_UPDATE);
 		new ErrorManager(TcpSubCMD.SC_ERRO_MSG);
@@ -26,7 +26,7 @@ public static class FactoryUtils
 		new AchievementUpdateManager(TcpSubCMD.SC_UPDATE_ACHIEVEMENT);
 		new AchievementUpdateManager(TcpSubCMD.SC_COMPLETE_ACHIEVEMENT);
 		new AchievementUpdateManager(TcpSubCMD.SC_GET_REWARD);
-
+//*/
 		//		new JsonMessFactory(MessageDataType.Json);
 		//		new ProtobufMessFactory(MessageDataType.ProtoBuf);
 	}

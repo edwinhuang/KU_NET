@@ -85,6 +85,7 @@ public class MonoEventsBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 
 }
 
+/*
 
 public class MonoBattleBinder : MonoBehaviour 
 {
@@ -134,7 +135,7 @@ public class MonoBattleBinder : MonoBehaviour
 
 }
 
-
+//*/
 
 /// <summary>
 /// Mono single ton.

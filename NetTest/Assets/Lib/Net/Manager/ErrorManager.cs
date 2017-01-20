@@ -24,7 +24,22 @@ namespace Kubility
 
 
     public class ErrorManager : ICommonClass
-    {
+	{
+
+		public override void DispatcherEvents(ValueType data, BaseEnum main, BaseEnum sub, object callback)
+		{
+		}
+		public override void Destroy()
+		{}
+
+		public static void PushMsg(string errormsg, ErrorType error = ErrorType.None)
+		{
+
+//			UnkownError(new CustomException(errormsg, error));
+
+		}
+
+	}
 		/*
         private static Queue<ErrorMsgResp> errorList = new Queue<ErrorMsgResp>();
 

@@ -120,7 +120,7 @@ namespace Kubility
 
             return null;
         }
-
+/*
         public static StructMessage CreateLuaReq(MessageHead head, LuaInterface.LuaByteBuffer data)
         {
             if (MessageInfo.MessageTypeCheck(MessageDataType.Struct))
@@ -138,6 +138,7 @@ namespace Kubility
 
             return null;
         }
+		//*/
 
         public static StructMessage CreateResp(MessageHead head, ValueType data)
         {
@@ -153,6 +154,7 @@ namespace Kubility
             return null;
         }
 
+/*
         public void Wait_LuaResp(Action<LuaResp> ev, params int[] ReceveIDs)
         {
             for (int i = 0; i < ReceveIDs.Length; ++i)
@@ -164,7 +166,7 @@ namespace Kubility
             }
  
         }
-
+//*/
 
 
         public override void Wait_Deserialize<T>(Action<T> ev, params int[] ReceveIDs)

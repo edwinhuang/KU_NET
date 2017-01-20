@@ -39,7 +39,7 @@ namespace Kubility
 				//			timer.AutoReset =false;
 				//		}
 
-				public CTask Coroutine_DelayAsTask (float time, VoidDelegate ev)
+/*				public CTask Coroutine_DelayAsTask (float time, VoidDelegate ev)
 				{
 			
 						var ts = new CTask (Delay (time, ev));
@@ -62,7 +62,7 @@ namespace Kubility
 						}));
 						return ts;
 				}
-
+//*/
 				public void Lerp (Action<int> callback, int start, int end, float time)
 				{
 

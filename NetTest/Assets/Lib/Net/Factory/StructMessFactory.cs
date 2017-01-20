@@ -14,6 +14,8 @@ public class StructMessFactory : DataInterface
 
 		public override BaseMessage DynamicCreate (byte[] data, MessageHead head)
 		{
+		return null;
+		/*
 				StructMessage value = null;
 #if UNITY_EDITOR
 				BaseEnum e1 = (BaseEnum)head.MainCMD;
@@ -483,6 +485,7 @@ public class StructMessFactory : DataInterface
 				}
 
 				return value;
+				//*/
 		}
 
 

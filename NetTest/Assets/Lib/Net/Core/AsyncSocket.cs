@@ -501,7 +501,7 @@ namespace Kubility
                 {
                     LogUtils.LogError("Reconnect Failed ");
                     CloseConnect();
-                    callback.TryCall(false);
+					callback.Invoke(false);
 
                 }
                 else 
@@ -514,7 +514,7 @@ namespace Kubility
                         handler.EndConnect(iar);
                         times = 0;
                         m_state = SocketArgsStats.CONNECTING;
-                        callback.TryCall(true);
+							callback.Invoke(true);
                     }, m_socket);
 
 
@@ -527,7 +527,7 @@ namespace Kubility
                 if (times > Config.mIns.Retry_Times)
                 {
                     LogUtils.LogError("Reconnect Failed " + ex.ToString());
-                    callback.TryCall(false);
+					callback.Invoke(false);
                     CloseConnect();
                 }
                 else

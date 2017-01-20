@@ -157,7 +157,7 @@ namespace Kubility
 
 			requestList = new Stack<MiniTuple<string, HttpType, object>> ();
 			this.m_curRequest = new MiniTuple<string, HttpType, object> ();
-			ErrorManager.Register<HttpUnit> (this);
+			//ErrorManager.Register<HttpUnit> (this);
 #if USE_COR
 #else
 			this.m_lock = new object();

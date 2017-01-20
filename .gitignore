@@ -288,3 +288,6 @@ NetTest/Temp/UnityTempFile-c941e7869ecb2e94a9f1460955b9b300
 NetTest/Temp/UnityTempFile-d5619210ead906d43ac61f30a8ce0d5e
 NetTest/Temp/UnityTempFile-e01d93a5685082a4487f146ac00907d0
 NetTest/Temp/UnityTempFile-e5a53d04d5e6dbd4aae2f7f6ff5f1afa
+NetTest/Library/
+NetTest/Temp/
+NetTest/obj/

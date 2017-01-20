@@ -10,6 +10,15 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Text;
 
+public enum SKSCMD
+{
+	NET_CONNECT = 10,
+
+	NET_RECONNECT = 100,
+	NET_RECONNECT_DirectLoading = 101,
+	NET_RECONNECT_DIAL_RECONNECT = 102,
+}
+
 namespace Kubility
 {
     /// <summary>
@@ -169,15 +178,15 @@ namespace Kubility
 
                 MessageManager.mIns.GetSendQueue().Push_Back(message);
 
-                if (typeof(T) == typeof(LuaResp))
-                {
-                    StructMessage structmess = message as StructMessage;
-                    structmess.Wait_LuaResp(callback as Action<LuaResp>, ReceiveIDs);
-                }
-                else
-                {
+//                if (typeof(T) == typeof(LuaResp))
+//                {
+//                    StructMessage structmess = message as StructMessage;
+//                    structmess.Wait_LuaResp(callback as Action<LuaResp>, ReceiveIDs);
+//                }
+//                else
+//                {
                     message.Wait_Deserialize<T>(callback, ReceiveIDs);
-                }
+//                }
                 SendMessage();
 
             }
@@ -220,21 +229,18 @@ namespace Kubility
                     if (value)
                     {
                         ReceiveCount = 0;
-														_socket.SetState(AsyncSocket.SocketArgsStats.FREE);
-
-														SocketService.mIns.ClearNetReq();
+						_socket.SetState(AsyncSocket.SocketArgsStats.FREE);
+						//SocketService.mIns.ClearNetReq();
                         PreReceive();
                         //暂留缓存的请求继续发送
                         while (MessageManager.mIns.GetSendQueue().Size > 0)
                             SendMessage();
                     }
 
-                    callback.TryCall(value);
                 });
             }
             else
             {
-                callback.TryCall(false);
             }
         }
 
@@ -278,7 +284,6 @@ namespace Kubility
 
         public void CloseConnect()
         {
-            if (_socket.LogNull())
             {
                 _socket.CloseConnect();
             }
@@ -384,7 +389,6 @@ namespace Kubility
             Socket socket = obj as Socket;
 
 
-            if (socket.LogNull() && socket.Connected)
             {
 //#if debug
 								LogUtils.Log ("LastOperation ", ev.LastOperation.ToString (), " Socket状态", ev.SocketError.ToString (), ev.SocketFlags.ToString ());
@@ -658,7 +662,6 @@ namespace Kubility
             }
             else
             {
-                if (args.LogNull())
                     ProcessError(args);
             }
         }
